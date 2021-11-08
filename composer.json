@@ -1,0 +1,38 @@
+{
+  "name": "alireaza/singleton",
+  "version": "1.0.0",
+  "type": "library",
+  "license": "MIT",
+  "description": "The Singleton.",
+  "keywords": [
+    "alireaza",
+    "singleton",
+    "instance",
+    "getInstance"
+  ],
+  "homepage": "https://gitlab.com/AliReaza/singleton",
+  "authors": [
+    {
+      "name": "Mohammad Ali Ghorbani Delijani",
+      "homepage": "https://www.alireaza.ir",
+      "role": "Developer",
+      "email": "alireazamagh@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.0.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "9.5.9"
+  },
+  "autoload": {
+    "psr-4": {
+      "AliReaza\\Singleton\\": "./src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "AliReaza\\Tests\\Singleton\\": "./tests/"
+    }
+  }
+}
