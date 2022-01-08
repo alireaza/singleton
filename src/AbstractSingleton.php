@@ -5,7 +5,7 @@ namespace AliReaza\Singleton;
 use Exception;
 
 /**
- * Class AbstractSingleton
+ * Abstract AbstractSingleton
  *
  * @package AliReaza\Singleton
  */
