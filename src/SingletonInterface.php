@@ -2,17 +2,10 @@
 
 namespace AliReaza\Singleton;
 
-/**
- * Interface SingletonInterface
- *
- * @package AliReaza\Singleton
- */
 interface SingletonInterface
 {
     /**
-     * gets the instance via lazy initialization (created on first usage)
-     *
-     * @return object
+     * Gets the instance via lazy initialization (created on first usage)
      */
     public static function getInstance(): object;
 }

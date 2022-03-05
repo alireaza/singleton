@@ -9,33 +9,30 @@ use AliReaza\Singleton\Singleton;
 use AliReaza\Singleton\SingletonInterface;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Class SingletonTest
- *
- * @package AliReaza\Tests\Singleton\Unit
- */
 class SingletonTest extends TestCase
 {
-    public function test_When_create_new_Singleton_Expect_Singleton_instance_of_SingletonInterface()
+    public function test_When_create_new_Singleton_Expect_Singleton_instance_of_SingletonInterface(): void
     {
         $this->expectError();
-        $this->assertInstanceOf(SingletonInterface::class, new Singleton);
+
+        $this->assertInstanceOf(SingletonInterface::class, new Singleton());
     }
 
-    public function test_When_create_new_Singleton_Expect_Singleton_instance_of_AbstractSingleton()
+    public function test_When_create_new_Singleton_Expect_Singleton_instance_of_AbstractSingleton(): void
     {
         $this->expectError();
-        $this->assertInstanceOf(AbstractSingleton::class, new Singleton);
+
+        $this->assertInstanceOf(AbstractSingleton::class, new Singleton());
     }
 
-    public function test_When_create_new_Singleton_Expect_throw_exception_for_protected_constructor()
+    public function test_When_create_new_Singleton_Expect_throw_exception_for_protected_constructor(): void
     {
         $this->expectErrorMessageMatches('/^Call to protected/');
 
-        new Singleton;
+        new Singleton();
     }
 
-    public function test_When_extend_Singleton_Expect_throw_exception_for_protected_constructor()
+    public function test_When_extend_Singleton_Expect_throw_exception_for_protected_constructor(): void
     {
         $this->expectErrorMessageMatches('/^Call to protected/');
 
@@ -43,7 +40,7 @@ class SingletonTest extends TestCase
         };
     }
 
-    public function test_When_extend_Singleton_with_public_constructor_with_arguments_Expect_throw_exception_ArgumentCountError()
+    public function test_When_extend_Singleton_with_public_constructor_with_arguments_Expect_throw_exception_ArgumentCountError(): void
     {
         $this->expectErrorMessageMatches('/^Too few arguments to function/');
 
@@ -54,21 +51,21 @@ class SingletonTest extends TestCase
         };
     }
 
-    public function test_When_clone_Singleton_Expect_throw_exception_for_private_clone()
+    public function test_When_clone_Singleton_Expect_throw_exception_for_private_clone(): void
     {
         $this->expectErrorMessageMatches('/^Call to private/');
 
         clone Singleton::getInstance();
     }
 
-    public function test_When_unserialize_Singleton_Expect_throw_exception()
+    public function test_When_unserialize_Singleton_Expect_throw_exception(): void
     {
         $this->expectErrorMessage('Cannot unserialize singleton');
 
         $this->assertIsObject(unserialize(serialize(Singleton::getInstance())));
     }
 
-    public function test_When_multiple_times_get_instance_from_a_Singleton_Expect_all_instances_must_same()
+    public function test_When_multiple_times_get_instance_from_a_Singleton_Expect_all_instances_must_same(): void
     {
         $obj1 = Singleton::getInstance();
         $obj2 = Singleton::getInstance();
